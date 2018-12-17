@@ -1,8 +1,10 @@
-4
+5
+struct:h;
 short int:a; 
 float:c; 
 double:k;
 string:str; 
-2
+3
+h l a . +
 k d a b c + * + +
 f str +

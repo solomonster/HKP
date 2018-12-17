@@ -48,9 +48,10 @@ bool Variable::IsTypeValid (string type)
 		"unsigned int",
 		"float",
 		"double",
-		"string"
+		"string",
+		"struct"
 	};
-	vector <string> types (arr,arr+14);
+	vector <string> types (arr,arr+15);
 
 	for (int i=0; i<types.size() && isOk==false; i++)
 	{

@@ -27,7 +27,7 @@ int _tmain(int argc, _TCHAR* argv[])
 
 	string declaration, expression, type, name;
 	vector < vector <string> > elementsOfExpressions;
-	elementsOfExpressions.resize(2);
+	elementsOfExpressions.resize(5);
 	map <string, Node*> nodes;
 	vector <Variable*> variables;
 	vector <string> vec;
@@ -105,7 +105,11 @@ void determineVariableType(vector <Variable*> variables,map <string, vector<stri
 			 {
 				 if(elementsOfExpressions[i][k]==(variables[j]->GetName())){
 					 t=true;
-					 v.push_back(variables[j]->GetType());
+					 if(!(variables[j]->GetType()=="struct"))
+					 {
+						 v.push_back(variables[j]->GetType());
+					 }
+					
 					 
 					  
 				 }
@@ -116,42 +120,26 @@ void determineVariableType(vector <Variable*> variables,map <string, vector<stri
 			// To get the undefined variables and excluding operators as  undefined variables
 			if(t==false)
 			{
-				if(!elementsOfExpressions[i][k].compare("*"))
-				{
-				}
+				if(!elementsOfExpressions[i][k].compare("*")){}
 				else
 				{
-					if(!elementsOfExpressions[i][k].compare("+"))
-					{
-					}
+					if(!elementsOfExpressions[i][k].compare("+")){}
 					else
 					{
-						if(!elementsOfExpressions[i][k].compare("-"))
-						{
-						}
+						if(!elementsOfExpressions[i][k].compare("-")){}
 						else
 						{
-							if (!elementsOfExpressions[i][k].compare("/"))
-							{
-							}
+							if (!elementsOfExpressions[i][k].compare("/")){}
 							else
 							{
-								undefinedVariables.push_back(elementsOfExpressions[i][k]);
+								if (!elementsOfExpressions[i][k].compare(".")){}
+								else
+									undefinedVariables.push_back(elementsOfExpressions[i][k]);
 							}
-							
-						}
-						
-					}
-					
+						}	
+					}	
 				}
-				
-
-			}
-
-
-
-			 
-			 
+			}		 
 		 }
 
 		// Remove duplicate variable type from our vector of types
@@ -362,7 +350,7 @@ void getDataFromInputFile (char* inputFile, map <string, Node*> & nodes, vector 
 	}
 
 	getline(cin,abc);
-	//vector <string> & vec;
+	
 	//// Cчитываем выражения из файла и делим их на элементы
 	for (int i = 0; i < countExpressions; i++)
 	{
