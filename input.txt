@@ -1,0 +1,8 @@
+4
+short int:a; 
+float:c; 
+double:k;
+string:str; 
+2
+k d a b c + * + +
+f str +

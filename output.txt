@@ -1,0 +1,5 @@
+The undefined variables and their possible given types
+
+b: double; float; short int; 
+d: double; float; short int; 
+f: string; 
